@@ -1,6 +1,7 @@
 {
   "name": "caesar-cipher-converter",
   "type": "module",
+  "description": "A simple Caesar cipher converter.",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -9,6 +10,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "author": {
+    "name": "Khamisi Lawrence",
+    "email": "khamisilawrence.jm@gmail.com",
+    "url": "https://khamisilawrence.github.io"
+  },
+  "license": "MIT",
   "dependencies": {
     "astro": "^4.16.13",
     "@astrojs/check": "^0.9.4",
