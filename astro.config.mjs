@@ -11,9 +11,11 @@ import astroMetaTags from "astro-meta-tags";
 
 import tunnel from 'astro-tunnel';
 
+import pageInsight from "astro-page-insight";
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
   adapter: netlify(),
-  integrations: [tailwind(), sitemap(), astroMetaTags(), tunnel()]
+  integrations: [tailwind(), sitemap(), astroMetaTags(), tunnel(), pageInsight()]
 });
