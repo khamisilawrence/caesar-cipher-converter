@@ -9,9 +9,11 @@ import sitemap from '@astrojs/sitemap';
 
 import astroMetaTags from "astro-meta-tags";
 
+import tunnel from 'astro-tunnel';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
   adapter: netlify(),
-  integrations: [tailwind(), sitemap(), astroMetaTags()]
+  integrations: [tailwind(), sitemap(), astroMetaTags(), tunnel()]
 });

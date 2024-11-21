@@ -26,6 +26,7 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "astro-meta-tags": "^0.3.1"
+    "astro-meta-tags": "^0.3.1",
+    "astro-tunnel": "^0.1.6"
   }
 }
