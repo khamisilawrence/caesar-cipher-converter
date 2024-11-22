@@ -25,7 +25,8 @@
     "astro": "^4.16.13",
     "caesar-cipher-converter": "file:",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "word-list": "^4.1.0"
   },
   "devDependencies": {
     "@types/cypress": "^1.1.6",
