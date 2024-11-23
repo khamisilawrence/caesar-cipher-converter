@@ -9,13 +9,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
-      "jest",
       "node"
     ]
   },
   "include": [
     "src/**/*",
-    "jest.config.ts"
   ],
   "exclude": [
     "node_modules"
