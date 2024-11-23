@@ -15,11 +15,15 @@ const content = {
 
 <BaseLayout title={metadata.title} description={metadata.desc}>
   <section class="flex flex-col w-full">
-    <section class="text-center flex flex-col gap-y-4">
-      <h2 class="text-4xl xl:text-6xl font-bold tracking-wide text-gray-100">
+    <section class="text-center flex flex-col gap-y-4 xl:mb-8">
+      <h2
+        class="text-2xl lg:text-4xl xl:text-6xl font-bold tracking-wide text-white dark:text-gray-100"
+      >
         {content.heading}
       </h2>
-      <p class="xl:text-2xl text-gray-100">
+      <p
+        class="text-sm tracking-wide lg:text-base xl:text-2xl text-white dark:text-gray-100"
+      >
         {content.subheading}
       </p>
     </section>
