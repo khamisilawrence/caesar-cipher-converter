@@ -1,0 +1,62 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+export const author = {
+  name: "Khamisi Lawrence",
+  url: "https://github.com/khamisilawrence",
+};
+
+/* Props for title and description */
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Caesar Says | Caesar Cipher Encryption Tool" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content={author.name} />
+    <link rel="author" href={author.url} />
+    <meta name="robots" content="index, follow, nocache" />
+    <meta
+      name="googlebot"
+      content="index, nofollow, noimageindex, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    />
+    <meta
+      name="category"
+      content="Encryption, Caesar Cipher, Decryption Tools, Web Application"
+    />
+    <meta name="theme-color" content="#2e1065" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles/globals.css" />
+  </head>
+  <body
+    class="min-h-screen w-full bg-gradient-to-r from-indigo-500 to-violet-500 dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-800 flex flex-col"
+  >
+    <!-- Header -->
+    <Header />
+
+    <!-- Main Content -->
+    <main
+      class="flex-grow container mx-auto flex justify-center items-center px-4 py-6"
+    >
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+  </body>
+</html>
