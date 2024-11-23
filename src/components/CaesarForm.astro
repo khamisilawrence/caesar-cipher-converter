@@ -31,13 +31,13 @@ const iconLabel = "Copy to Clipboard";
   <div class="tabs border border-transparent rounded-lg flex mb-6 *:py-2">
     <button
       id="encrypt-tab"
-      class="tab-button active outline-none rounded-l-lg w-full bg-white dark:bg-gray-300 text-violet-800 border border-white dark:border-gray-300 dark:text-violet-950"
+      class="tab-button active outline-none rounded-l-lg w-full uppercase text-lg xl:text-xl font-medium bg-white dark:bg-gray-300 text-violet-800 border border-white dark:border-gray-300 dark:text-violet-950"
     >
       {encrypt.title}
     </button>
     <button
       id="decrypt-tab"
-      class="tab-button outline-none rounded-r-lg w-full bg-transparent text-white dark:text-gray-300 border border-white dark:border-gray-300"
+      class="tab-button outline-none rounded-r-lg w-full uppercase text-lg xl:text-xl font-medium bg-transparent text-white dark:text-gray-300 border border-white dark:border-gray-300"
     >
       {decrypt.title}
     </button>
@@ -47,7 +47,7 @@ const iconLabel = "Copy to Clipboard";
   <div id="encrypt-tab-content">
     <label
       for="encrypt-input"
-      class="block font-medium text-white dark:text-gray-300 mb-2"
+      class="block font-medium text-lg xl:text-xl text-white dark:text-gray-300 mb-2"
     >
       {encrypt.label}
     </label>
@@ -55,12 +55,12 @@ const iconLabel = "Copy to Clipboard";
       id="encrypt-input"
       rows="4"
       spellcheck="false"
-      class="outline-none resize-none select-text w-full text-white dark:text-gray-300 border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 caret-violet-200 p-4 mb-4"
+      class="outline-none resize-none select-text text-lg w-full text-white dark:text-gray-300 border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg caret-violet-200 p-4 mb-4"
       placeholder={encrypt.placeholder.text}></textarea>
 
     <label
       for="shift-input-encrypt"
-      class="block font-medium text-white dark:text-gray-300 mb-2"
+      class="block font-medium text-lg xl:text-xl text-white dark:text-gray-300 mb-2"
     >
       {encrypt.shift}
     </label>
@@ -69,13 +69,13 @@ const iconLabel = "Copy to Clipboard";
       type="number"
       min="0"
       max="25"
-      class="outline-none w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 text-white dark:text-gray-300 p-4 mb-4"
+      class="outline-none text-lg w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg text-white dark:text-gray-300 p-4 mb-4"
       placeholder={encrypt.placeholder.shift}
     />
 
     <button
       id="encrypt-button"
-      class="outline-none px-4 py-2 bg-white dark:bg-gray-300 border border-transparent text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
+      class="outline-none border border-transparent bg-white text-lg font-medium max-lg:w-full px-4 py-2 dark:bg-gray-300 text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
     >
       {encrypt.title}
     </button>
@@ -85,7 +85,7 @@ const iconLabel = "Copy to Clipboard";
   <div id="decrypt-tab-content" class="hidden">
     <label
       for="decrypt-input"
-      class="block font-medium text-white dark:text-gray-300 mb-2"
+      class="block font-medium text-lg xl:text-xl text-white dark:text-gray-300 mb-2"
     >
       {decrypt.label}
     </label>
@@ -93,12 +93,12 @@ const iconLabel = "Copy to Clipboard";
       id="decrypt-input"
       rows="4"
       spellcheck="false"
-      class="outline-none resize-none w-full border border-white dark:border-gray-300 rounded-md text-white dark:text-gray-300 bg-violet-900/10 placeholder:text-gray-300 caret-violet-200 p-4 mb-4"
+      class="outline-none resize-none text-lg w-full border border-white dark:border-gray-300 rounded-md text-white dark:text-gray-300 bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg caret-violet-200 p-4 mb-4"
       placeholder={decrypt.placeholder.text}></textarea>
 
     <label
       for="shift-input-decrypt"
-      class="block font-medium text-white dark:text-gray-300 mb-2"
+      class="block font-medium text-lg xl:text-xl text-white dark:text-gray-300 mb-2"
     >
       {decrypt.shift}
     </label>
@@ -107,29 +107,31 @@ const iconLabel = "Copy to Clipboard";
       type="number"
       min="0"
       max="25"
-      class="outline-none w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 text-white dark:text-gray-300 p-4 mb-4"
+      class="outline-none text-lg w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg text-white dark:text-gray-300 p-4 mb-4"
       placeholder={decrypt.placeholder.shift}
     />
 
     <button
       id="decrypt-button"
-      class="outline-none px-4 py-2 bg-white dark:bg-gray-300 border border-transparent text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
+      class="outline-none px-4 py-2 text-lg font-medium max-lg:w-full bg-white dark:bg-gray-300 border border-transparent text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
     >
       {decrypt.title}
     </button>
   </div>
 
   <!-- Output Section -->
-  <div class="flex items-center gap-4 mt-4">
+  <div
+    class="relative rounded-md border bg-violet-950 dark:bg-violet-900/10 flex justify-between items-center gap-4 mt-8"
+  >
     <output
       id="result-output"
-      class="foutline-none rounded-md border border-transparent dark:border-gray-300 flex-grow block bg-violet-950 dark:bg-violet-900/10 text-gray-100 p-4"
+      class="outline-none block rounded-md overflow-ellipsis text-lg border border-transparent dark:border-gray-300 w-full bg-transparent text-white dark:text-gray-100 p-4"
     >
       {outputPlaceholder}
     </output>
     <button
       id="copy-button"
-      class="outline-none border-2 dark:border border-transparent rounded-md w-fit bg-gray-100 transition-transform p-2 hover:scale-125 focus-visible:scale-125 active:bg-transparent active:border-violet-950 dark:active:border-gray-300 dark:active:bg-violet-300"
+      class="outline-none absolute top-2 right-0 border dark:border border-white rounded-md w-fit bg-indigo-00 transition-transform mr-2 p-2 hover:scale-90 focus-visible:scale-110 active:bg-violet-400 active:border-white dark:active:border-gray-300 dark:active:bg-violet-300"
     >
       <span class="sr-only">{iconLabel}</span>
       <CopyIcon />
