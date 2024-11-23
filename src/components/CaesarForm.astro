@@ -1,0 +1,323 @@
+---
+import CopyIcon from "./CopyIcon.astro";
+
+const encrypt = {
+  title: "Encrypt",
+  label: "Text to Encrypt:",
+  shift: "Shift Value:",
+  placeholder: {
+    text: "Enter the text you wish to encrypt",
+    shift: "Enter any number from 1 - 26",
+  },
+};
+
+const decrypt = {
+  title: "Decrypt",
+  label: "Text to Decrypt:",
+  shift: "Shift Value (optional):",
+  placeholder: {
+    text: "Enter the text you wish to decrypt",
+    shift: "Enter any number from 1 - 26",
+  },
+};
+
+const outputPlaceholder = "Result will appear here";
+
+const iconLabel = "Copy to Clipboard";
+---
+
+<div class="container mx-auto p-4">
+  <!-- Tabs -->
+  <div class="tabs border border-transparent rounded-lg flex mb-6 *:py-2">
+    <button
+      id="encrypt-tab"
+      class="tab-button active outline-none rounded-l-lg w-full bg-white dark:bg-gray-300 text-violet-800 border border-white dark:border-gray-300 dark:text-violet-950"
+    >
+      {encrypt.title}
+    </button>
+    <button
+      id="decrypt-tab"
+      class="tab-button outline-none rounded-r-lg w-full bg-transparent text-white dark:text-gray-300 border border-white dark:border-gray-300"
+    >
+      {decrypt.title}
+    </button>
+  </div>
+
+  <!-- Encrypt Tab Content -->
+  <div id="encrypt-tab-content">
+    <label
+      for="encrypt-input"
+      class="block font-medium text-white dark:text-gray-300 mb-2"
+    >
+      {encrypt.label}
+    </label>
+    <textarea
+      id="encrypt-input"
+      rows="4"
+      spellcheck="false"
+      class="outline-none resize-none select-text w-full text-white dark:text-gray-300 border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 caret-violet-200 p-4 mb-4"
+      placeholder={encrypt.placeholder.text}></textarea>
+
+    <label
+      for="shift-input-encrypt"
+      class="block font-medium text-white dark:text-gray-300 mb-2"
+    >
+      {encrypt.shift}
+    </label>
+    <input
+      id="shift-input-encrypt"
+      type="number"
+      min="0"
+      max="25"
+      class="outline-none w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 text-white dark:text-gray-300 p-4 mb-4"
+      placeholder={encrypt.placeholder.shift}
+    />
+
+    <button
+      id="encrypt-button"
+      class="outline-none px-4 py-2 bg-white dark:bg-gray-300 border border-transparent text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
+    >
+      {encrypt.title}
+    </button>
+  </div>
+
+  <!-- Decrypt Tab Content -->
+  <div id="decrypt-tab-content" class="hidden">
+    <label
+      for="decrypt-input"
+      class="block font-medium text-white dark:text-gray-300 mb-2"
+    >
+      {decrypt.label}
+    </label>
+    <textarea
+      id="decrypt-input"
+      rows="4"
+      spellcheck="false"
+      class="outline-none resize-none w-full border border-white dark:border-gray-300 rounded-md text-white dark:text-gray-300 bg-violet-900/10 placeholder:text-gray-300 caret-violet-200 p-4 mb-4"
+      placeholder={decrypt.placeholder.text}></textarea>
+
+    <label
+      for="shift-input-decrypt"
+      class="block font-medium text-white dark:text-gray-300 mb-2"
+    >
+      {decrypt.shift}
+    </label>
+    <input
+      id="shift-input-decrypt"
+      type="number"
+      min="0"
+      max="25"
+      class="outline-none w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 text-white dark:text-gray-300 p-4 mb-4"
+      placeholder={decrypt.placeholder.shift}
+    />
+
+    <button
+      id="decrypt-button"
+      class="outline-none px-4 py-2 bg-white dark:bg-gray-300 border border-transparent text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
+    >
+      {decrypt.title}
+    </button>
+  </div>
+
+  <!-- Output Section -->
+  <div class="flex items-center gap-4 mt-4">
+    <output
+      id="result-output"
+      class="foutline-none rounded-md border border-transparent dark:border-gray-300 flex-grow block bg-violet-950 dark:bg-violet-900/10 text-gray-100 p-4"
+    >
+      {outputPlaceholder}
+    </output>
+    <button
+      id="copy-button"
+      class="outline-none border-2 dark:border border-transparent rounded-md w-fit bg-gray-100 transition-transform p-2 hover:scale-125 focus-visible:scale-125 active:bg-transparent active:border-violet-950 dark:active:border-gray-300 dark:active:bg-violet-300"
+    >
+      <span class="sr-only">{iconLabel}</span>
+      <CopyIcon />
+    </button>
+  </div>
+</div>
+
+<script>
+  import { caesarCipher } from "../utils/caesarCipher";
+  import { determineShift } from "../utils/determineShift";
+  import { getAlphabet } from "../utils/alphabets";
+  import { loadDictionary } from "../utils/dictionary";
+
+  const encryptTab = document.getElementById(
+    "encrypt-tab"
+  ) as HTMLButtonElement;
+  const decryptTab = document.getElementById(
+    "decrypt-tab"
+  ) as HTMLButtonElement;
+  const encryptTabContent = document.getElementById(
+    "encrypt-tab-content"
+  ) as HTMLDivElement;
+  const decryptTabContent = document.getElementById(
+    "decrypt-tab-content"
+  ) as HTMLDivElement;
+
+  const encryptInput = document.getElementById(
+    "encrypt-input"
+  ) as HTMLTextAreaElement;
+  const encryptShiftInput = document.getElementById(
+    "shift-input-encrypt"
+  ) as HTMLInputElement;
+  const encryptButton = document.getElementById(
+    "encrypt-button"
+  ) as HTMLButtonElement;
+
+  const decryptInput = document.getElementById(
+    "decrypt-input"
+  ) as HTMLTextAreaElement;
+  const decryptShiftInput = document.getElementById(
+    "shift-input-decrypt"
+  ) as HTMLInputElement;
+  const decryptButton = document.getElementById(
+    "decrypt-button"
+  ) as HTMLButtonElement;
+
+  const resultOutput = document.getElementById(
+    "result-output"
+  ) as HTMLOutputElement;
+  const copyButton = document.getElementById(
+    "copy-button"
+  ) as HTMLButtonElement;
+
+  let selectedLanguage:
+    | "english"
+    | "spanish"
+    | "french"
+    | "german"
+    | "italian"
+    | "portuguese"
+    | "dutch"
+    | "romanian"
+    | "greek"
+    | "russian"
+    | "ukrainian"
+    | "bulgarian"
+    | "serbian"
+    | "macedonian"
+    | "arabic"
+    | "hebrew"
+    | "devanagari"
+    | "thai"
+    | "armenian"
+    | "georgian"
+    | "korean"
+    | "hiragana"
+    | "katakana"
+    | "chinese"
+    | "swahili"
+    | "esperanto"
+    | "kurdish_latin"
+    | "kurdish_cyrillic"
+    | "albanian"
+    | "mongolian" = "english";
+  let dictionary: Set<string> = new Set();
+
+  // Load the dictionary
+  loadDictionary().then((loadedDictionary) => {
+    dictionary = loadedDictionary;
+    console.log(`Loaded dictionary with ${dictionary.size} words.`);
+  });
+
+  // Tab Switching Logic
+  encryptTab?.addEventListener("click", () => {
+    encryptTabContent?.classList.remove("hidden");
+    decryptTabContent?.classList.add("hidden");
+
+    encryptTab.classList.add(
+      "bg-white",
+      "text-violet-800",
+      "dark:bg-gray-300",
+      "dark:text-violet-950"
+    );
+    decryptTab?.classList.remove(
+      "bg-white",
+      "text-violet-800",
+      "dark:bg-gray-300",
+      "dark:text-violet-950"
+    );
+  });
+
+  decryptTab?.addEventListener("click", () => {
+    decryptTabContent?.classList.remove("hidden");
+    encryptTabContent?.classList.add("hidden");
+
+    decryptTab.classList.add(
+      "bg-white",
+      "text-violet-800",
+      "dark:bg-gray-300",
+      "dark:text-violet-950"
+    );
+    encryptTab?.classList.remove(
+      "bg-white",
+      "text-violet-800",
+      "dark:bg-gray-300",
+      "dark:text-violet-950"
+    );
+    encryptTab?.classList.add("text-white", "dark:text-gray-300");
+  });
+
+  // Handle Encryption
+  encryptButton?.addEventListener("click", (event) => {
+    event.preventDefault();
+    const inputText = encryptInput?.value.trim();
+    const shiftValue = parseInt(encryptShiftInput?.value, 10);
+
+    if (!inputText || isNaN(shiftValue)) {
+      if (resultOutput)
+        resultOutput.textContent = "Error: Provide valid text and shift.";
+      return;
+    }
+
+    const alphabet = getAlphabet(selectedLanguage);
+    const encryptedText = caesarCipher(inputText, shiftValue, alphabet);
+    if (resultOutput) resultOutput.textContent = `${encryptedText}`;
+  });
+
+  // Handle Decryption
+  decryptButton?.addEventListener("click", (event) => {
+    event.preventDefault();
+    const inputText = decryptInput?.value.trim();
+    const shiftValue = parseInt(decryptShiftInput?.value, 10);
+    const alphabet = getAlphabet(selectedLanguage);
+
+    if (!inputText) {
+      if (resultOutput)
+        resultOutput.textContent = "Error: Provide text to decrypt.";
+      return;
+    }
+
+    let decryptedText = "";
+    if (!isNaN(shiftValue)) {
+      decryptedText = caesarCipher(inputText, -shiftValue, alphabet);
+    } else {
+      const detectedShift = determineShift(inputText, alphabet, dictionary);
+      decryptedText = caesarCipher(inputText, -detectedShift, alphabet);
+      if (resultOutput)
+        resultOutput.textContent = `Decrypted: ${decryptedText} (Shift: ${detectedShift})`;
+      return;
+    }
+
+    if (resultOutput) resultOutput.textContent = `${decryptedText}`;
+  });
+
+  // Copy to Clipboard Logic
+  copyButton?.addEventListener("click", () => {
+    const textToCopy = resultOutput?.textContent
+      ?.replace("Result: ", "")
+      .trim();
+    if (textToCopy) {
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(() => {
+          console.log("Result copied to clipboard!");
+        })
+        .catch((error) => {
+          console.error("Failed to copy text:", error);
+        });
+    }
+  });
+</script>
