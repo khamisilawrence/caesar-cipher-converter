@@ -35,9 +35,9 @@ The application supports various languages with defined alphabets, including but
 
 ## Technologies Used
 
-Framework: [Astro](https://astro.build/)
-Language: [TypeScript](https://www.typescriptlang.org/)
-Styling: [TailwindCSS](https://tailwindcss.com/)
+- Framework: [Astro](https://astro.build/)
+- Language: [TypeScript](https://www.typescriptlang.org/)
+- Styling: [TailwindCSS](https://tailwindcss.com/)
 
 ---
 
@@ -104,7 +104,7 @@ Styling: [TailwindCSS](https://tailwindcss.com/)
 
 ## Directory Structure
 
-```plaintext
+```python
 .
 ├── src/
 │   ├── components/
