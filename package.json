@@ -29,6 +29,7 @@
     "word-list": "^4.1.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
     "@types/cypress": "^1.1.6",
     "@types/jest": "^29.5.14",
     "astro-meta-tags": "^0.3.1",
