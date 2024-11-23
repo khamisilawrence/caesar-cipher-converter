@@ -7,14 +7,18 @@ const headerContent = "Caesar Says";
 ---
 
 <header class="bg-transparent w-full text-white dark:text-gray-300 py-4">
-  <nav class="container mx-auto flex justify-between text-center">
+  <nav
+    class="container mx-auto flex justify-around lg:justify-between text-center"
+  >
     <span class="w-fit flex justify-evenly">
       <a class="flex justify-evenly items-center" href="/">
         <div class="aspect-square w-12">
           <Image alt="Caesar Says logo" src={LogoImg} loading="eager" />
         </div>
         <div class="flex items-center h-12">
-          <h1 class="text-2xl font-bold tracking-wide">{headerContent}</h1>
+          <h1 class="text-2xl font-bold tracking-wide">
+            {headerContent}
+          </h1>
         </div>
       </a>
     </span>
