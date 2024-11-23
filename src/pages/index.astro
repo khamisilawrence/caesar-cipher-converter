@@ -1,16 +1,30 @@
 ---
+import CaesarForm from "../components/CaesarForm.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const metadata = {
+  title: "Caesar Says | Caesar Cipher Encryption Tool",
+  desc: "Caesar Cipher Tool for encryption and decryption with support for multiple languages. Securely encrypt and decrypt text using the classic Caesar cipher technique.",
+};
+
+const content = {
+  heading: "Caesar Cipher Converter",
+  subheading: "Encrypt or decrypt text using the Caesar cipher",
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={metadata.title} description={metadata.desc}>
+  <section class="flex flex-col w-full">
+    <section class="text-center flex flex-col gap-y-4">
+      <h2 class="text-4xl xl:text-6xl font-bold tracking-wide text-gray-100">
+        {content.heading}
+      </h2>
+      <p class="xl:text-2xl text-gray-100">
+        {content.subheading}
+      </p>
+    </section>
+    <div class="container mx-auto p-4">
+      <CaesarForm />
+    </div>
+  </section>
+</BaseLayout>
