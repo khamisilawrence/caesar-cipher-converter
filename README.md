@@ -105,7 +105,7 @@ The application supports various languages with defined alphabets, including but
 ## Directory Structure
 
 ```python
-.
+caesar-cipher-converter/
 ├── src/
 │   ├── components/
 │   │   ├── CaesarForm.astro  # Main form for encrypting and decrypting text
@@ -125,7 +125,7 @@ The application supports various languages with defined alphabets, including but
 │       ├── determineShift.ts # Algorithm to detect shift values
 │       ├── dictionary.ts     # Dictionary loading and caching logic
 ├── public/
-│   ├── favicon.svg           # Application favicon
+│   ├── favicon.ico           # Application favicon
 │   └── assets/               # Static assets
 ├── astro.config.mjs          # Astro configuration
 ├── package.json              # Project dependencies
