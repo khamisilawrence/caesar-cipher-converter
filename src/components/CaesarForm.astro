@@ -31,13 +31,13 @@ const iconLabel = "Copy to Clipboard";
   <div class="tabs border border-transparent rounded-lg flex mb-6 *:py-2">
     <button
       id="encrypt-tab"
-      class="tab-button active outline-none rounded-l-lg w-full uppercase text-lg xl:text-xl font-medium bg-white dark:bg-gray-300 text-violet-800 border border-white dark:border-gray-300 dark:text-violet-950"
+      class="tab-button active outline-none rounded-l-lg w-full uppercase text-lg xl:text-xl font-medium bg-white dark:bg-gray-300 text-violet-800 border border-white dark:border-gray-300 dark:text-violet-950 focus-visible:bg-violet-950 focus-visible:text-white dark:focus-visible:bg-violet-700 dark:focus-visible:text-gray-100"
     >
       {encrypt.title}
     </button>
     <button
       id="decrypt-tab"
-      class="tab-button outline-none rounded-r-lg w-full uppercase text-lg xl:text-xl font-medium bg-transparent text-white dark:text-gray-300 border border-white dark:border-gray-300"
+      class="tab-button outline-none rounded-r-lg w-full uppercase text-lg xl:text-xl font-medium bg-transparent text-white dark:text-gray-300 border border-white dark:border-gray-300 focus-visible:bg-violet-950 focus-visible:text-white dark:focus-visible:bg-violet-700 dark:focus-visible:text-gray-100"
     >
       {decrypt.title}
     </button>
@@ -55,7 +55,7 @@ const iconLabel = "Copy to Clipboard";
       id="encrypt-input"
       rows="4"
       spellcheck="false"
-      class="outline-none resize-none select-text text-lg w-full text-white dark:text-gray-300 border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg caret-violet-200 p-4 mb-4"
+      class="outline-none resize-none select-text text-lg w-full text-white dark:text-gray-300 border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg caret-violet-200 focus-visible:bg-violet-950 dark:focus-visible:bg-violet-700 p-4 mb-4"
       placeholder={encrypt.placeholder.text}></textarea>
 
     <label
@@ -69,13 +69,13 @@ const iconLabel = "Copy to Clipboard";
       type="number"
       min="0"
       max="25"
-      class="outline-none text-lg w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg text-white dark:text-gray-300 p-4 mb-4"
+      class="outline-none text-lg w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg text-white dark:text-gray-300 focus-visible:bg-violet-950 dark:focus-visible:bg-violet-700 p-4 mb-4"
       placeholder={encrypt.placeholder.shift}
     />
 
     <button
       id="encrypt-button"
-      class="outline-none border border-transparent bg-white text-lg font-medium max-lg:w-full px-4 py-2 dark:bg-gray-300 text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
+      class="outline-none border border-transparent bg-white text-lg font-medium max-lg:w-full px-4 py-2 dark:bg-gray-300 text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent focus-visible:bg-violet-950 focus-visible:text-white focus-visible:border-white dark:focus-visible:bg-violet-700 dark:focus-visible:text-gray-100 dark:focus-visible:border-gray-300"
     >
       {encrypt.title}
     </button>
@@ -93,7 +93,7 @@ const iconLabel = "Copy to Clipboard";
       id="decrypt-input"
       rows="4"
       spellcheck="false"
-      class="outline-none resize-none text-lg w-full border border-white dark:border-gray-300 rounded-md text-white dark:text-gray-300 bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg caret-violet-200 p-4 mb-4"
+      class="outline-none resize-none text-lg w-full border border-white dark:border-gray-300 rounded-md text-white dark:text-gray-300 bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg caret-violet-200 focus-visible:bg-violet-950 dark:focus-visible:bg-violet-700 p-4 mb-4"
       placeholder={decrypt.placeholder.text}></textarea>
 
     <label
@@ -107,13 +107,13 @@ const iconLabel = "Copy to Clipboard";
       type="number"
       min="0"
       max="25"
-      class="outline-none text-lg w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg text-white dark:text-gray-300 p-4 mb-4"
+      class="outline-none text-lg w-full border border-white dark:border-gray-300 rounded-md bg-violet-900/10 placeholder:text-gray-300 placeholder:text-lg text-white dark:text-gray-300 focus-visible:bg-violet-950 dark:focus-visible:bg-violet-700 p-4 mb-4"
       placeholder={decrypt.placeholder.shift}
     />
 
     <button
       id="decrypt-button"
-      class="outline-none px-4 py-2 text-lg font-medium max-lg:w-full bg-white dark:bg-gray-300 border border-transparent text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent"
+      class="outline-none px-4 py-2 text-lg font-medium max-lg:w-full bg-white dark:bg-gray-300 border border-transparent text-violet-800 dark:text-violet-950 rounded-md hover:bg-violet-500 dark:hover:bg-violet-900 hover:text-white hover:dark:text-gray-300 hover:border-white active:bg-violet-800 dark:active:bg-transparent focus-visible:bg-violet-950 focus-visible:text-white focus-visible:border-white dark:focus-visible:bg-violet-700 dark:focus-visible:text-gray-100 dark:focus-visible:border-gray-300"
     >
       {decrypt.title}
     </button>
@@ -271,6 +271,7 @@ const iconLabel = "Copy to Clipboard";
     if (!inputText || isNaN(shiftValue)) {
       if (resultOutput)
         resultOutput.textContent = "Error: Provide valid text and shift.";
+      resultOutput.classList.add("text-red-500", "dark:text-red-500");
       return;
     }
 

@@ -6,7 +6,12 @@ import { author } from "../layouts/BaseLayout.astro";
   <div class="container mx-auto px-4 text-center">
     <p class="text-xs">
       © {new Date().getFullYear()} Maintained by
-      <a href={author.url} rel="noopener" target="_blank">
+      <a
+        href={author.url}
+        rel="noopener"
+        target="_blank"
+        class="outline-none active:text-gray-500 focus-visible:text-gray-900 dark:focus-visible:text-violet-300"
+      >
         <span translate="no">{author.name}</span>
       </a>
     </p>
