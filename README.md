@@ -20,19 +20,6 @@ The **Caesar Cipher Converter** is a web application that allows users to encryp
 
 ---
 
-## Supported Languages
-
-The application supports various languages with defined alphabets, including but not limited to:
-
-- English, Spanish, French, German, Italian, Portuguese, and Dutch
-- Greek, Russian, Ukrainian, Arabic, and Hebrew
-- Devanagari _(Hindi, Sanskrit)_, Thai, Armenian, Georgian
-- Korean, Japanese _(Hiragana, Katakana)_
-- Chinese _(limited support for transliterations)_
-- Swahili, Esperanto, Kurdish, and more
-
----
-
 ## Technologies Used
 
 - Framework: [Astro](https://astro.build/)
