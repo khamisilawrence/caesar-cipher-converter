@@ -1,6 +1,6 @@
 # Caesar Cipher Converter
 
-The **Caesar Cipher Converter** is a web application that allows users to encrypt and decrypt text using the Caesar Cipher method. This tool supports internationalization, enabling users to select their preferred language for text processing. Additionally, the application includes features such as a dark/light mode toggle and accurate decryption logic leveraging dictionary-based analysis.
+The **Caesar Cipher Converter** is a web application that allows users to encrypt and decrypt text using the Caesar Cipher method. Additionally, the application includes features such as a dark/light mode toggle and accurate decryption logic leveraging dictionary-based analysis.
 
 ---
 
@@ -10,7 +10,6 @@ The **Caesar Cipher Converter** is a web application that allows users to encryp
 
 - **Encryption**: Encrypt text by shifting characters by a user-defined value.
 - **Decryption**: Automatically detect the shift value of encrypted text and decrypt it.
-- **Internationalization**: Supports multiple languages, including English, Spanish, French, German, and others.
 - **Theme Toggle**: Switch between light and dark themes using a visually intuitive button.
 
 ### Advanced Features
