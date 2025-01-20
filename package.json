@@ -22,7 +22,7 @@
     "@astrojs/netlify": "^5.5.4",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
-    "astro": "^4.16.13",
+    "astro": "^5.1.8",
     "caesar-cipher-converter": "file:",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3",
