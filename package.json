@@ -28,8 +28,6 @@
     "word-list": "^4.1.0"
   },
   "devDependencies": {
-    "astro-meta-tags": "^0.3.1",
-    "astro-page-insight": "^0.9.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49"
   }
