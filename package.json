@@ -24,7 +24,7 @@
     "@astrojs/tailwind": "^5.1.2",
     "astro": "^5.1.8",
     "caesar-cipher-converter": "file:",
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.25.5",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3",
     "word-list": "^4.1.0"
